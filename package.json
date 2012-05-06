@@ -1,0 +1,25 @@
+{
+	"author": "Jussi Kalliokoski <jussi.kalliokoski@gmail.com> (http://avd.io)",
+	"name": "asifier",
+	"description": "A tool for inspecting where ASI occurs.",
+	"version": "0.1.0",
+	"homepage": "https://github.com/jussi-kalliokoski/asifier",
+
+	"repository": {
+		"url": "git://github.com/jussi-kalliokoski/asifier.git"
+	},
+
+	"main": "./lib/index.js",
+
+	"dependencies": {},
+	"devDependencies": {},
+	"optionalDependencies": {},
+
+	"engines": {
+		"node": "*"
+	},
+
+	"bin": {
+		"asify": "bin/asify"
+	}
+}

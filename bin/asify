@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+var fs = require('fs')
+var asify = require('../lib')
+var print = process.stdout.write.bind(process.stdout)
+var exit = process.exit.bind(process)
+var debug = console.error.bind(console)
+var argv = process.argv
+var flags = {}
+
+process.on('uncaughtException', function (e) {
+	debug(e.toString())
+	exit(1)
+})
+
+void function (p) {
+	p = argv.indexOf('-i')
+	p = p === -1 ? argv.indexOf('--insert') : p
+
+	if (p !== -1) {
+		flags.insert = true
+		argv.splice(p, 1)
+	}
+}()
+
+if (argv.length < 3) {
+	debug('Usage: asify [flags] file')
+	debug('Flags:')
+	debug('\t--insert -i\tInsert semicolons to the file and output that instead')
+	exit()
+}
+
+var path = argv[2]
+/* FIXME: Not every file is UTF-8 */
+var data = fs.readFileSync(path, 'UTF-8')
+
+var result = asify(data, path)
+
+if (!flags.insert) {
+	print(JSON.stringify(result))
+	exit()
+}
+
+print(asify.insert(data, result))
