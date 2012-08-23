@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/jussi-kalliokoski/asifier.png)](http://travis-ci.org/jussi-kalliokoski/asifier)
 # asifier
 
 After all this debate about ASI being hard to learn for language newcomers, I was wondering if code editors could be equipped with a plugin that would show where ASI would insert semicolons. This could also be helpful to people not wanting to use semicolons, as the semicolons would be visible, but you didn't have to type them (it's hard, I know). So, asifier is a small node module based on [narcissus](https://github.com/mozilla/narcissus) with a CLI tool to detect where ASI would insert the semicolons. This could later be used by code editors to implement the feature I described earlier.
